@@ -1,0 +1,159 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: "Lato", sans-serif;
+}
+
+main {
+  display: grid;
+}
+
+.info-card {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #454545;
+  height: fit-content;
+  margin-left: 3rem;
+  color: white;
+  padding: 1rem;
+}
+
+.info-card-info {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: initial;
+  justify-content: space-between;
+}
+
+.info-card-buttons {
+  width: 100%;
+}
+
+.info-card-buttons > button {
+  background-color: #454545;
+  border: none;
+  color: white;
+  margin-right: 1rem;
+}
+
+strong {
+    color: blue;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.la {
+  cursor: pointer;
+}
+
+.top-image {
+  width: 200px;
+  height: 200px;
+  margin: 1rem;
+}
+
+.top-image {
+  top: center;
+  left: 50%;
+}
+
+aside {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: aqua;
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem 0 1rem 0;
+}
+
+.list-container {
+  width: 100%;
+}
+
+.card-even {
+  background-color: red;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  background-color: #43689b;
+  padding: 1rem;
+}
+
+.song-buttons {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20rem;
+  margin-right: 5rem;
+  padding: 1rem;
+}
+
+.current-song-img {
+  width: 100px;
+  height: 100px;
+}
+
+.song-button {
+  border: none;
+  background-color: #43689b;
+}
+
+.song-name-author-container {
+  padding-right: 5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.song-button:hover {
+  cursor: pointer;
+}
+
+nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #dddddd;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  margin: 1rem;
+  margin-left: 4rem;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+tr > td:nth-child(4) {
+  color: blue;
+}
