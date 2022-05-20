@@ -17,7 +17,7 @@ main {
   background-color: #454545;
   height: fit-content;
   margin-left: 3rem;
-  color: white;
+  color: #ffffff;
   padding: 1rem;
 }
 
@@ -36,12 +36,12 @@ main {
 .info-card-buttons > button {
   background-color: #454545;
   border: none;
-  color: white;
+  color: #ffffff;
   margin-right: 1rem;
 }
 
 strong {
-    color: blue;
+    color: #0000ff;
 }
 
 button:hover {
@@ -67,7 +67,7 @@ aside {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: aqua;
+  background-color: #00ffff;
   height: 100%;
 }
 
@@ -83,7 +83,7 @@ aside {
 }
 
 .card-even {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 footer {
@@ -155,5 +155,5 @@ tr:nth-child(even) {
 }
 
 tr > td:nth-child(4) {
-  color: blue;
+  color: #0000ff;
 }
