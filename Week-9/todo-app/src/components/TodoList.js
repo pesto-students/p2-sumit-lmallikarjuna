@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { List as AntList, Modal as AntModal, Button as AntButton} from "antd";
 import { v4 as uuidv4 } from "uuid";
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
@@ -7,6 +8,7 @@ import Modal from "./Modal";
 function TodoList() {
   const [list, setList] = useState([]);
   const [openTodo, setOpenTodo] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function addToList(title, description) {
     setList((list) => [
@@ -21,26 +23,31 @@ function TodoList() {
   }
 
   function handleOnComplete(id) {
-    console.log("handleOnComplete");
-    setList((list) =>
-      list.map((todo) => {
-        if (todo.id === id) return { ...todo, isPending: false };
-        return todo;
-      })
-    );
+    setList((list) => list.filter((todo) => todo.id !== id));
     setOpenTodo(null);
   }
 
   function openModal(id) {
-    console.log("asodifhasodihas;odidhiffas;odihi");
     const item = list.find((item) => item.id === id);
     setOpenTodo(item);
+    setIsModalOpen(true);
+  }
+
+  function handleOk() {
+    handleOnComplete(openTodo.id);
+
+    setIsModalOpen(false);
+  }
+
+  function handleCancel() {
+    setIsModalOpen(false);
   }
 
   return (
     <div>
-      <ul>
-        <h1>Your todo list</h1>
+      <AddTodo addToList={addToList} />
+      <AntList>
+        {list.length > 0 ? <h1>Your todo list</h1> : null}
         {list.map(({ title, description, isPending, id }) => (
           <TodoItem
             id={id}
@@ -52,14 +59,16 @@ function TodoList() {
             openModal={openModal}
           />
         ))}
-      </ul>
-      <AddTodo addToList={addToList} />
+      </AntList>
       {openTodo && (
-        <Modal>
-          <h2>{openTodo.title}</h2>
+        <AntModal
+          title={openTodo.title}
+          visible={isModalOpen}
+          onCancel={handleCancel}
+          footer={[<AntButton type="primary" onClick={handleOk}>Completed ✅</AntButton>]}
+        >
           <p>{openTodo.description}</p>
-          <button onClick={() => handleOnComplete(openTodo.id)}>✅</button>
-        </Modal>
+        </AntModal>
       )}
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button as AntButton, Input as AntInput, Form as AntForm } from "antd";
 
 function AddTodo({ addToList }) {
   const [title, setTitle] = useState("");
@@ -23,26 +24,42 @@ function AddTodo({ addToList }) {
     } else if (description === "") {
       setError({ status: true, message: "Description should not be empty" });
     } else addToList(title, description);
+    setTitle("");
+    setDescription("");
   }
 
   return (
-    <div>
+    <AntForm>
       <h1>Add new todos</h1>
-      <input
-        type="text"
-        value={title}
-        placeholder="Todo title"
-        onChange={handleTitleChange}
-      />
-      <textarea
-        type="text"
-        value={description}
-        placeholder="Todo description"
-        onChange={handleDescriptionChange}
-      />
-      <button onClick={handleAddTodo}>Add Todo</button>
+      <AntForm.Item required colon={false} label="Title" name="title">
+        <AntInput
+          type="text"
+          value={title}
+          placeholder="Todo title"
+          status={error.status ? "warning" : "success"}
+          error="adf"
+          onChange={handleTitleChange}
+        />
+      </AntForm.Item>
+      <AntForm.Item
+        required
+        colon={false}
+        label="Description"
+        name="description"
+      >
+        <AntInput.TextArea
+          type="text"
+          value={description}
+          placeholder="Todo description"
+          status={error.status ? "warning" : "success"}
+          onChange={handleDescriptionChange}
+        />
+      </AntForm.Item>
+      <AntButton type="primary" block onClick={handleAddTodo}>
+        🚀 Add Todo 🚀
+      </AntButton>
       {error.status ? <p>{error.message}</p> : null}
-    </div>
+    </AntForm>
   );
 }
 
